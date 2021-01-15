@@ -3,5 +3,5 @@ dist/
 coverage/
 */bin/
 */obj/
-.vscode–
+.vscode
 .env
