@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using PierresInventory.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace PierresInventory
 {
@@ -27,7 +28,12 @@ namespace PierresInventory
       services.AddEntityFrameworkMySql()
           .AddDbContext<PierresInventoryContext>(options => options
           .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
+
+      services.AddIdentity<ApplicationUser, IdentityRole>()
+          .AddEntityFrameworkStores<ToDoListContext>()
+          .AddDefaultTokenProviders();
     }
+    
 
     public void Configure(IApplicationBuilder app)
     {
