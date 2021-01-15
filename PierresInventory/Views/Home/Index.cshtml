@@ -1,0 +1,45 @@
+@{
+  Layout = "_Layout";
+}
+
+@using PierresInventory.Models
+
+
+
+
+<h1>Pierre's Inventory Manager</h1>
+
+  @using (Html.BeginForm("SearchTreat", "Treats"))
+  {
+    @Html.Label("Search by Treat:") 
+    <br>
+    @Html.TextBox("name")<input type="submit" value="Search">
+  }
+  @using (Html.BeginForm("SearchFlavor", "Flavors"))
+  {
+    <br>
+    @Html.Label("Search by Flavor:")
+    <br>
+    @Html.TextBox("title")<input type="submit" value="Search">
+  }
+
+<ul style="list-style-type: none;">
+  @foreach (Flavor Flavor in Model["Flavor"])
+  {
+    <li>Flavor Name: @Html.ActionLink($"{Flavor.FlavorName}", "Details", "Flavors", new { id = Flavor.FlavorId })
+        <br>
+    </li>
+    <hr />
+  }
+</ul>
+
+@foreach(Treat Treat in ViewBag.manyTreats)
+{
+      <li>Treat Name: @Html.ActionLink($"{Treat.TreatName}", "Details", "Treats", new { id = Treat.TreatId })</li>
+}
+
+<br>
+<hr />
+<p>@Html.ActionLink("See all Flavors", "Index", "Flavors")</p>
+<p>@Html.ActionLink("See all Treats", "Index", "Treats")</p>
+<p>@Html.ActionLink("Create an account", "Index", "Account")</p>
