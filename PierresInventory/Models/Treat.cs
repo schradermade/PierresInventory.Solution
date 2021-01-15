@@ -1,19 +1,19 @@
 using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
-namespace PROJECTNAME.Models
+namespace PierresInventory.Models
 {
-  public class PARENT
+  public class Treat
   {
-    public PARENT()
+    public Treat()
     {
-      this.CHILDs = new HashSet<PARENTCHILD>();
+      this.Flavors = new HashSet<TreatFlavor>();
     }
 
     public int PROPERTYNAME { get; set; }
     public string PROPERTYNAME { get; set; }
     public string PROPERTYNAME { get; set; }
-    public virtual ICollection<PARENTCHILD> PROPERTYNAME { get; set; }
+    public virtual ICollection<TreatFlavor> PROPERTYNAME { get; set; }
 
   }
 }

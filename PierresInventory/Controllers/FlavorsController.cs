@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
-using PROJECTNAME.Models;
+using PierresInventory.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace PROJECTNAME.Controllers
+namespace PierresInventory.Controllers
 {
-  public class HomeController : Controller
+  public class FlavorsController : Controller
   {
 
   }

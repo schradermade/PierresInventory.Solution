@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using PROJECTNAME.Models;
+using PierresInventory.Models;
 
-namespace PROJECTNAME
+namespace PierresInventory
 {
   public class Startup
   {
@@ -25,7 +25,7 @@ namespace PROJECTNAME
       services.AddMvc();
 
       services.AddEntityFrameworkMySql()
-          .AddDbContext<PROJECTNAMEContext>(options => options
+          .AddDbContext<PierresInventoryContext>(options => options
           .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
     }
 
