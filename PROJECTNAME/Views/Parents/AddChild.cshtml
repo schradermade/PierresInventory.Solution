@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PROJECTNAME.Models.PARENT
+
+<h2>Add a CHILD</h2>
+
+<h4>Assign a CHILD to this PARENT: @Html.DisplayFor(model => model.PARENTName)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.PARENTId)
+
+  @Html.Label("Select CHILD")
+  @Html.DropDownList("CHILDId")
+
+  <input type="submit" value="Assign" />
+}
+
+<p>@Html.ActionLink("Back to List", "Index")</p>

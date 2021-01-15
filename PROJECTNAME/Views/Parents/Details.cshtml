@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PROJECTNAME.Models.PARENT;
+
+<h2>PARENT Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.PARENTName): @Html.DisplayFor(model => model.PARENTName)</h3>
+
+@if (@Model.CHILDs.Count == 0)
+{
+  <p>This PARENT does not have any CHILDs assigned to them.</p>
+}
+else
+{
+  <h4>CHILDs this PARENT is assigned to maintain</h4>
+  <ul>
+    @foreach (var join in Model.CHILDs)
+    {
+      <li>@join.CHILD.CHILDName</li>
+      <li>@join.CHILD.CHILDId</li>
+    }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to PARENTs", "Index")</p>
+<p>@Html.ActionLink("Edit PARENT", "Edit", new { id = Model.PARENTId })</p>
+<p>@Html.ActionLink("Delete PARENT", "Delete", new { id = Model.PARENTId })</p>

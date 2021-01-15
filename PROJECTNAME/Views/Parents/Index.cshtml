@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+@using PROJECTNAME.Models;
+@model List<PROJECTNAME.Models.PARENT>;
+
+  <h1>PARENTs</h1>
+
+<br>
+<hr />
+
+  @if (@Model.Count == 0)
+  {
+    <h3>No PARENTs have been added to.....</h3>
+  }
+
+  @foreach (PARENT PARENT in Model)
+  {
+    <li>@Html.ActionLink($"{PARENT.PARENTName}", "Details", new { id = PARENT.PARENTId })</li>
+  }
+
+<br>
+<hr />
+<p><strong>Go To..</strong></p>
+  <p>@Html.ActionLink("Add a new PARENT", "Create")</p>
+  <p>@Html.ActionLink("Home", "Index", "Home")</p>

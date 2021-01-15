@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PROJECTNAME.Models.PARENT
+
+<h4>Add an PARENT</h4>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.PARENTName)
+  @Html.TextBoxFor(model => model.PARENTName)
+  <input type="submit" value="Add a new PARENT" />
+}
+
+<p>@Html.ActionLink("Show all PARENTs", "Index")</p>

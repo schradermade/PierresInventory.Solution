@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PROJECTNAME.Models.PARENT
+
+<h2>Are you sure you want to delete this PARENT?</h2>
+
+@Html.DisplayNameFor(model => model.PARENTName): @Html.DisplayFor(model => model.PARENTName)
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" />
+}
+@Html.ActionLink("Back to PARENTs", "Index")
