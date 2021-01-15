@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+}
+
+@* @model Library.Models.Treat; *@
+
+
+
+<h1>Flavors by this Treat</h1>
+@* @Console.WriteLine(Model.JoinEntries) *@
+
+@if(@Model.JoinEntries.Count == 0)
+{
+  <p>There are no Flavors associated with this Treat.</p>
+}
+else
+{
+  <h4>This Treat is associated with the following Flavors:</h4>
+  <ul>
+  @foreach(var join in Model.JoinEntries) //Model represents the Treat. join represents rows on the TreatTreat (Treat and Treat associations)
+  {
+    <li>@join.Treat.TreatName</li>
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Add new Treat", "Create")</p>
+
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
+
