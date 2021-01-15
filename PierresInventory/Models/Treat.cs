@@ -7,13 +7,14 @@ namespace PierresInventory.Models
   {
     public Treat()
     {
-      this.Flavors = new HashSet<TreatFlavor>();
+      this.JoinEntries = new HashSet<TreatFlavor>();
     }
 
-    public int PROPERTYNAME { get; set; }
-    public string PROPERTYNAME { get; set; }
-    public string PROPERTYNAME { get; set; }
-    public virtual ICollection<TreatFlavor> PROPERTYNAME { get; set; }
+    public int TreatId { get; set; }
+    public string TreatName { get; set; }
+    public virtual ApplicationUser User { get; set; }
+
+    public virtual ICollection<TreatFlavor> JoinEntries { get; }
 
   }
 }
