@@ -30,7 +30,7 @@ namespace PierresInventory
           .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
 
       services.AddIdentity<ApplicationUser, IdentityRole>()
-          .AddEntityFrameworkStores<ToDoListContext>()
+          .AddEntityFrameworkStores<PierresInventoryContext>()
           .AddDefaultTokenProviders();
     }
     
@@ -38,6 +38,8 @@ namespace PierresInventory
     public void Configure(IApplicationBuilder app)
     {
       app.UseDeveloperExceptionPage();
+
+      app.UseAuthentication();
 
       app.UseMvc(routes =>
       {
