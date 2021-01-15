@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierresInventory.Models.Flavor
+
+<h4>Edit a Flavor</h4>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.FlavorId)
+    @* @Html.HiddenFor(model => model.StartDate) *@
+
+    @Html.LabelFor(model => model.FlavorName)
+    @Html.EditorFor(model => model.FlavorName)
+
+    <input type="submit" value="Edit" />
+}
+<p>@Html.ActionLink("Show all Flavors", "Index")</p>
