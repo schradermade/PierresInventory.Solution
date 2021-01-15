@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
 using PierresInventory.Models;
-using Microsoft.AspNetCore.Identity;
 
 namespace PierresInventory
 {
@@ -37,6 +37,8 @@ namespace PierresInventory
 
     public void Configure(IApplicationBuilder app)
     {
+      app.UseStaticFiles();
+
       app.UseDeveloperExceptionPage();
 
       app.UseAuthentication();
