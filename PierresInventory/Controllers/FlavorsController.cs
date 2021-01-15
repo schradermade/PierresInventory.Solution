@@ -58,6 +58,31 @@ namespace PierresInventory.Controllers
         _db.SaveChanges();
         return RedirectToAction("Index");
     }
+    public ActionResult Details(int id)
+    {
+      var thisFlavor = _db.Flavors
+          .Include(flavor => flavor.JoinEntries)
+          .ThenInclude(join => join.Treat)
+          .FirstOrDefault(flavor => flavor.FlavorId == id);
+      var userId = this._userManager.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      if (userId != null)
+      {
+        if (userId == thisFlavor.UserId)
+        {
+          ViewBag.IsCurrentUser = true;
+        }
+        else
+        {
+          ViewBag.IsCurrentUser = false;
+        }
+      }
+      else
+      {
+        ViewBag.IsCurrentUser = false;
+      }
+      return View(thisFlavor);
+    }
+    
 
   }
 }
