@@ -30,7 +30,14 @@ namespace PierresInventory.Controllers
         return View(userFlavors);
     }
 
-   
+    public ActionResult SearchFlavor(string title)
+    {
+      var thisFlavor = _db.Flavors
+          .Include(flavor => flavor.JoinEntries)
+          .ThenInclude(join => join.Treat)
+          .FirstOrDefault(flavor => flavor.FlavorName == title);
+      return View(thisFlavor);
+    }
   
 
   }
