@@ -24,7 +24,7 @@ namespace PierresInventory.Controllers
 
     public async Task<ActionResult> Index()
     {
-        var userId = this._userManager.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         var currentUser = await _userManager.FindByIdAsync(userId);
         var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id).ToList();
         return View(userFlavors);
@@ -48,7 +48,7 @@ namespace PierresInventory.Controllers
     public async Task<ActionResult> Create(Flavor flavor, int TreatId)
     {
         var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        var currentUser = await _userManager.FindFirst(userId);
+        var currentUser = await _userManager.FindByIdAsync(userId);
         flavor.User = currentUser;
         _db.Flavors.Add(flavor);
         if (TreatId != 0)
@@ -64,22 +64,6 @@ namespace PierresInventory.Controllers
           .Include(flavor => flavor.JoinEntries)
           .ThenInclude(join => join.Treat)
           .FirstOrDefault(flavor => flavor.FlavorId == id);
-      var userId = this._userManager.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      if (userId != null)
-      {
-        if (userId == thisFlavor.UserId)
-        {
-          ViewBag.IsCurrentUser = true;
-        }
-        else
-        {
-          ViewBag.IsCurrentUser = false;
-        }
-      }
-      else
-      {
-        ViewBag.IsCurrentUser = false;
-      }
       return View(thisFlavor);
     }
     public ActionResult Edit(int id)
