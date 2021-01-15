@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using System.Security.Claims;
 
 namespace PierresInventory.Controllers
 {
@@ -28,10 +32,12 @@ namespace PierresInventory.Controllers
           .FirstOrDefault(treat => treat.TreatName == name);
       return View(thisTreat);
     }
+    
     public ActionResult Create()
     {
       return View();
     }
+
     [HttpPost]
     public ActionResult Create (Treat treat)
     {
@@ -46,8 +52,8 @@ namespace PierresInventory.Controllers
           .ThenInclude(join => join.Flavor)
           .Include(treat => treat.User)
           .FirstOrDefault(treat => treat.TreatId == id);
-      // var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      // ViewBag.IsCurrentUser = userId != null ? userId == thisTreat.User.Id : false;
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      ViewBag.IsCurrentUser = userId != null ? userId == thisTreat.User.Id : false;
       return View(thisTreat);
     }
     public ActionResult Edit(int id)

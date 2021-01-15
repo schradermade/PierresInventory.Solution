@@ -64,12 +64,13 @@ namespace PierresInventory.Controllers
           .Include(flavor => flavor.JoinEntries)
           .ThenInclude(join => join.Treat)
           .FirstOrDefault(flavor => flavor.FlavorId == id);
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       return View(thisFlavor);
     }
     public ActionResult Edit(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
-      ViewBag.TreatId = new SelectList(_db.Treats, "TreatsId", "TreatName");
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");
       return View(thisFlavor);
     }
     [HttpPost]
