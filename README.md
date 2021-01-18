@@ -115,8 +115,8 @@ To view or edit the code, you will need an code editor or text editor. The popul
 # Setup and Use
 
 - copy the repository URL and paste it after this GIT command `git clone {repository url}`
-- after opening the repository in your code reader, run `dotnet build`
-- once build is complete and no errors are thrown, run `dotnet watch run` in the terminal
+- after opening the repository in your code reader navigate to the project directory `Factory` and run `dotnet build`
+- once build is complete and no errors are thrown, while still in the `Factory` directory folder, run `dotnet watch run` in the terminal
 
   ```
 
