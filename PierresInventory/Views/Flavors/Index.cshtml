@@ -5,7 +5,7 @@
 @using PierresInventory.Models;
 @model List<PierresInventory.Models.Flavor>;
 
-<h1>Flavors</h1>
+<h1>Flavors for @User.Identity.Name</h1>
 
 @if (@Model.Count == 0)
 {
