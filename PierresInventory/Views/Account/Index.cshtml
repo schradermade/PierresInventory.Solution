@@ -1,8 +1,9 @@
 @{
-  Layout = "_Layout";
+    Layout = "_Layout";
 }
 
 @using System.Security.Claims
+
 
 <h2>Pierre's User Account Manager</h2>
 <hr />
@@ -18,4 +19,5 @@ else
 {
     <p>@Html.ActionLink("Register", "Register")</p>
     <p>@Html.ActionLink("Log in", "Login")</p>
+    <p>@Html.ActionLink("Home", "Index", "Home")</p>
 }
