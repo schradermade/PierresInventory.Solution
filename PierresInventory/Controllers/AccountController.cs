@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using PierresInventory.Models;
 using System.Threading.Tasks;
 using PierresInventory.ViewModels;
+using System.Security.Claims;
 
 namespace PierresInventory.Controllers
 {

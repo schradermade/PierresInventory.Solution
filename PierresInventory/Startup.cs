@@ -32,7 +32,7 @@ namespace PierresInventory
       services.AddIdentity<ApplicationUser, IdentityRole>()
           .AddEntityFrameworkStores<PierresInventoryContext>()
           .AddDefaultTokenProviders();
-      // this code intentionally left for developor-use
+          
       services.Configure<IdentityOptions>(options =>
       {
         options.Password.RequireDigit = false;
