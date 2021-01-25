@@ -69,5 +69,6 @@ namespace PierresInventory.Controllers
       await _signInManager.SignOutAsync();
       return RedirectToAction("Index");
     }
+
   }
 }
