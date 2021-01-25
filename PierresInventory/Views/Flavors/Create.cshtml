@@ -2,18 +2,17 @@
   Layout = "_Layout";
 }
 
-@model PierresInventory.Models.Treat
+@model PierresInventory.Models.Flavor
 
-<h4>Add a new Treat</h4>
+<h4>Add a new Flavor</h4>
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.TreatName)
-    @Html.TextBoxFor(model => model.TreatName)
+    @Html.LabelFor(model => model.FlavorName)
+    @Html.TextBoxFor(model => model.FlavorName)
     
-    @* @Html.LabelFor(model => model.StartDate)
-    @Html.EditorFor(model => model.StartDate) *@
-    @* @Html.TextBoxFor(model => model.StartDate, new { @type = "date"}) *@
+    @Html.Label("Select treat")
+    @Html.DropDownList("TreatId")
 
-    <input type="submit" value="Add new Treat" />
+    <input type="submit" value="Add new Flavor" />
 }
-<p>@Html.ActionLink("Show all Treats", "Index")</p>
+<p>@Html.ActionLink("Show all flavors", "Index")</p>
